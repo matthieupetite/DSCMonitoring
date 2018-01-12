@@ -1,0 +1,66 @@
+﻿@model DSCNodeDetails
+@{
+    ViewData["Title"] = "Server Details";
+}
+@using Kendo.Mvc.UI;
+<h2>Server details</h2>
+<div class="row">
+    <div class="col-md-2">Server Name:</div>
+    <div class="col-md-10">@Model.NodeName</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Hostname:</div>
+    <div class="col-md-10">@Model.HostName</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Status:</div>
+    <div class="col-md-10">@Model.Status</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Operation Type:</div>
+    <div class="col-md-10">@Model.OperationType</div>
+</div>
+
+<div class="row">
+    <div class="col-md-2">Last Execution Time</div>
+    <div class="col-md-10">@Model.Time</div>
+</div>
+<div class="row">
+    <div class="col-md-2">AgentId:</div>
+    <div class="col-md-10">@Model.AgentId</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Duration:</div>
+    <div class="col-md-10">@Model.Duration</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Duration with overthead:</div>
+    <div class="col-md-10">@Model.DurationWithOverhead</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Reboot Requested:</div>
+    <div class="col-md-10">@Model.RebootRequested</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Resources Cound Desired State</div>
+    <div class="col-md-10">@Model.ResourceCountInDesiredState</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Resources In Desired State:</div>
+    <div class="col-md-10">@Model.ResourcesInDesiredState</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Resources Not In Desired State:</div>
+    <div class="col-md-10">@Model.ResourcesNotInDesiredState</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Error Message:</div>
+    <div class="col-md-10">@Model.ErrorMessage</div>
+</div>
+<div class="row">
+    <div class="col-md-2">Raw Status:</div>
+    <div class="col-md-10"><div id="rawStatus">@Model.RawStatusData</div></div>
+</div>
+@section scripts{ 
+
+}

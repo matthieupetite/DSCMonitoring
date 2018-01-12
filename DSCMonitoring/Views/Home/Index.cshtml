@@ -1,0 +1,86 @@
+﻿@model List<DSCNode>
+@using Kendo.Mvc.UI;
+@{
+    ViewData["Title"] = "Global";
+}
+<div class="row">
+<div class="col-md-12">
+    <h2>Server List</h2>
+</div>
+</div>
+<div class="row">
+    <div class="col-md-6" id="grid"></div>
+    <div class="col-md-5" id="chart"></div>
+</div>
+
+@section scripts{
+
+    @(Html.Kendo().Grid(Model).Name("grid")
+          .Columns(columns =>
+          {
+              columns.Bound(b => b.NodeName).Width(100);
+              columns.Bound(b => b.HostName).Width(100);
+              columns.Bound(b => b.Status).Width(100);
+          })
+          .Pageable()
+          .Sortable()
+          .Selectable()
+          .Filterable(x => x.Extra(false))
+          .Scrollable(x => x.Height(720))
+          .Resizable(x => x.Columns(true))
+          .Events(e => e.DataBound("onDataBound").Change("onGridChange"))          
+          .DataSource(ds => ds
+              .Custom()
+              .PageSize(20)
+              .Schema(s => s.Model(m => m.Id(x => x.NodeName)))
+          )
+          )
+
+    @(
+
+    Html.Kendo().Chart(Model)
+        .Name("chart")
+        .Title("Server Number Per Status")
+        .Legend(legend => legend
+            .Position(ChartLegendPosition.Bottom).Visible(true)
+        )
+        .ChartArea(chart => chart.Background("transparent"))
+        .SeriesColors(new string[] {"#00cc00", "#ff0000"})
+        .Series(series =>
+        {
+            series.Pie(new dynamic[]
+            {
+                new {category = "Node In Success", value = ViewData["NodeInSuccessPrecentage"], color = "#00cc00"},
+                new {category = "Node In failure", value = ViewData["NodeInFailurePrecentage"], color = "#ff0000"}
+            }
+                );
+        })
+        .Tooltip(tooltip => tooltip.
+            Template("${ category } - ${ value }%").Visible(true)
+        )
+          )
+    <script>
+        function onDataBound(e) {
+            var kendoGrid = $("#grid").data("kendoGrid");
+            var rows = e.sender.element.find("tbody tr");
+
+            for (var i = 0; i < rows.length; i++) {
+
+                var row = rows[i];
+                var status = kendoGrid.dataItem(row).Status;
+
+                if (status == "Failure") {
+                    $(row.cells[0]).attr("style", "color:red");
+                    $(row.cells[1]).attr("style", "color:red");
+                    $(row.cells[2]).attr("style", "color:red");
+                }
+            }
+        }
+
+        function onGridChange(e) {
+            var data = this.dataItem(this.select());
+            window.location.href = '/DscNodeDetails/' +data.NodeName;
+        }
+    </script>
+
+}
