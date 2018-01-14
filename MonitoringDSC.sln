@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{12D38112-91C
 	ProjectSection(SolutionItems) = preProject
 		Index.md = Index.md
 		PullServerDatabaseScript.sql = PullServerDatabaseScript.sql
+		Doc\Readme.md = Doc\Readme.md
 	EndProjectSection
 EndProject
 Global
