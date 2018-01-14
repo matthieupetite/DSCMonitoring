@@ -11,7 +11,7 @@ The status is displayed
 
 | Website Main View |  Website Detailed View |
 --------------------|-------------------------
-| ![Global View](matthieupetite.github.com/DSCMonitoring/doc/WebSiteScreenshot.png) | ![Detailed view](matthieu.github.com/DSCMonitoring/doc/WebSiteScreenshot1.png)
+| ![Global View](https://github.com/matthieupetite/DSCMonitoring/blob/develop/Doc/WebSiteScreenshot.png) | ![Detailed view](https://github.com/matthieupetite/DSCMonitoring/blob/develop/Doc/WebSiteScreenshot1.png)
 
 ## The API ##
 
@@ -67,6 +67,4 @@ replace the "Database IP", "Database User" and the "Database Password" with your
 ```
 
 
-
-
-
+Enjoy !!
