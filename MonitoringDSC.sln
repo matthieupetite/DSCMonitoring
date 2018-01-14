@@ -7,8 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DSCMonitoring", "DSCMonitor
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{12D38112-91CA-4B65-B840-49998D7D7443}"
 	ProjectSection(SolutionItems) = preProject
-		Index.md = Index.md
 		PullServerDatabaseScript.sql = PullServerDatabaseScript.sql
+		Doc\PullServerDatabaseScript.sql = Doc\PullServerDatabaseScript.sql
 		Doc\Readme.md = Doc\Readme.md
 	EndProjectSection
 EndProject
