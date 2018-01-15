@@ -1,4 +1,4 @@
-﻿# DCS Monitoring #
+﻿# DSC Monitoring #
 
 This tools give the abalility for sysadmin to monitor the status of DSC configuration applied on servers deployed with the Microsoft DSC Pull Server.
 
